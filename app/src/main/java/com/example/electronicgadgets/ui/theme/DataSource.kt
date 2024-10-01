@@ -13,6 +13,7 @@ class DataSource {
             "Camera",
             price = "$109.09",
             imageResourceId = R.drawable.levitating_music_headphones_display
+
         )
 
     )

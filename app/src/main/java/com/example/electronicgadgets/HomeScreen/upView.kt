@@ -1,4 +1,4 @@
-package com.example.electronicgadgets
+package com.example.electronicgadgets.HomeScreen
 
 
 import androidx.compose.foundation.layout.Column
@@ -28,7 +28,7 @@ import com.example.electronicgadgets.MainView.MainView
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UpView(modifier: Modifier = Modifier,navController: NavController) {
+fun View(modifier: Modifier = Modifier, navController: NavController) {
     var text by remember { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
     Column(

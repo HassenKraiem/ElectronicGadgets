@@ -6,6 +6,7 @@ class Electric(
     val imageResourceId: Int,
     val moreDetailedDescription: String = "",
     val Duration: String = "",
-    val power: String=""
+    val power: String="",
+    val id:String="0"
 ) {
 }

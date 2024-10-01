@@ -44,48 +44,57 @@ class DataSource {
         imageResourceId = R.drawable.pngegg___2022_03_14t175957,
         moreDetailedDescription = "Adjustable fit with comfort-cushioned ear cupsFine-tuned acoustics for clarity and depth with noise isolation Up to 40 hours of listening timeApple W1 chip & Class 1 Wireless Bluetooth®",
         Duration = "40 hours litening",
-        power = "5m Power up fuel"
+        power = "5m Power up fuel",
+        id = "1"
 
     ),
         Electric(
             description = "Beats Solo 2",
             price = "$90.13",
-            imageResourceId = R.drawable.pngegg___2022_03_14t175957
+            imageResourceId = R.drawable.pngegg___2022_03_14t175957,
+            id = "2"
         ),
         Electric(
             description = "Beats Solo 2",
             price = "$109.09",
-            imageResourceId = R.drawable.pngegg___2022_03_14t175957
+            imageResourceId = R.drawable.pngegg___2022_03_14t175957,
+            id = "3"
         ),
         Electric(
             description = "Red Beats",
             price = "$154.33",
-            imageResourceId = R.drawable.pngegg___2022_03_14t175957
+            imageResourceId = R.drawable.pngegg___2022_03_14t175957,
+            id = "4"
         ),
         Electric(
             description = "cc",
             price = "$50000202",
-            imageResourceId = R.drawable.pngegg___2022_03_14t175957
+            imageResourceId = R.drawable.pngegg___2022_03_14t175957,
+            id = "5"
         ),
         Electric(
             description = "cc",
             price = "$50000202",
-            imageResourceId = R.drawable.pngegg___2022_03_14t175957
+            imageResourceId = R.drawable.pngegg___2022_03_14t175957,
+            id = "6"
         ),
         Electric(
             description = "cc",
             price = "$50000202",
-            imageResourceId = R.drawable.pngegg___2022_03_14t175957
+            imageResourceId = R.drawable.pngegg___2022_03_14t175957,
+            id = "7"
         ),
         Electric(
             description = "cc",
             price = "$50000202",
-            imageResourceId = R.drawable.pngegg___2022_03_14t175957
+            imageResourceId = R.drawable.pngegg___2022_03_14t175957,
+            id = "8"
         ),
         Electric(
             description = "cc",
             price = "$50000202",
-            imageResourceId = R.drawable.pngegg___2022_03_14t175957
+            imageResourceId = R.drawable.pngegg___2022_03_14t175957,
+            id = "9"
         )
     )
 }

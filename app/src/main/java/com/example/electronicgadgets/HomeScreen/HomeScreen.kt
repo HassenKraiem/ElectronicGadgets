@@ -20,7 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.electronicgadgets.R
-import com.example.electronicgadgets.UpView
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,7 +44,7 @@ fun HomeScreen(navController: NavController){
                 }
             )
         }){innerpadding->
-        UpView(
+        View(
             modifier = Modifier.padding(innerpadding),
             navController = navController
         )

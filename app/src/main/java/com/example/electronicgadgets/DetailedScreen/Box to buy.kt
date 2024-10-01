@@ -36,13 +36,18 @@ fun BoxToBuy(electric: Electric, navController: NavController) {
             .clip(shape = RoundedCornerShape(10.dp))
             .background(color = colorResource(R.color.gris))
             .height(215.dp)
-            .clickable { navController.navigate(
-                route =Route.ElectronicFinalBox.route) },
-        contentAlignment = Alignment.Center){
+            .clickable {
+                navController.navigate(
+                    route = "Final/"+electric.id,
+                )
+            },
+        contentAlignment = Alignment.Center
+    ) {
         Column(
             verticalArrangement = Arrangement.SpaceEvenly, modifier = Modifier.fillMaxSize()
         ) {
-            Image(painter = painterResource(electric.imageResourceId),
+            Image(
+                painter = painterResource(electric.imageResourceId),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier

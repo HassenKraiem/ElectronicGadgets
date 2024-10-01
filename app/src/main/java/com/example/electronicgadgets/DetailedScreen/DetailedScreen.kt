@@ -1,5 +1,6 @@
 package com.example.electronicgadgets.DetailedScreen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.electronicgadgets.Navigation.Route
 import com.example.electronicgadgets.ui.theme.DataSource
 import com.example.electronicgadgets.ui.theme.Electric
 
@@ -31,53 +33,49 @@ import com.example.electronicgadgets.ui.theme.Electric
 @Composable
 fun DetailedScreen(navController: NavController) {
     val listOfTitles = listOf(
-        "new",
-        "featured",
-        "must see",
-        "top selected"
+        "new", "featured", "must see", "top selected"
     )
     val listOfHeadset = DataSource().listOfDetailedHeadset
-    Scaffold(modifier = Modifier,
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Row(horizontalArrangement = Arrangement.SpaceBetween,
-                        modifier = Modifier.fillMaxWidth()) {
-                        IconButton(onClick = {}) {
-                            Icon(
-                                imageVector = Icons.Default.ArrowBack,
-                                contentDescription = null
-                            )
-                        }
-                        IconButton(onClick = {}) {
-                            Icon(
-                                imageVector = Icons.Default.ShoppingCart,
-                                contentDescription = null
-                            )
-                        }
-                    }
+    Scaffold(modifier = Modifier, topBar = {
+        CenterAlignedTopAppBar(title = {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                IconButton(onClick = {}) {
+                    Icon(imageVector = Icons.Default.ArrowBack,
+                        contentDescription = null,
+                        modifier = Modifier.clickable {
+                            navController.navigate(route = Route.ElectricMainBox.route)
+                        })
+                }
+                IconButton(onClick = {}) {
+                    Icon(
+                        imageVector = Icons.Default.ShoppingCart, contentDescription = null
+                    )
+                }
+            }
 
-                })
-        }) { innerpadding ->
-        Column(modifier = Modifier
-            .padding(innerpadding)
-            .padding(15.dp)) {
+        })
+    }) { innerpadding ->
+        Column(
+            modifier = Modifier
+                .padding(innerpadding)
+                .padding(15.dp)
+        ) {
             Text(
-                text = "Wireless Headsets",
-                fontSize = 24.sp,
-                lineHeight = 27.58.sp
+                text = "Wireless Headsets", fontSize = 24.sp, lineHeight = 27.58.sp
             )
-            LazyRow(Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween) {
+            LazyRow(
+                Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 items(listOfTitles) { item: String ->
                     TextEffect(item)
                 }
             }
 
             LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                modifier = Modifier
-                    .padding(15.dp)
+                columns = GridCells.Fixed(2), modifier = Modifier.padding(15.dp)
 
             ) {
                 items(listOfHeadset) { item: Electric ->

@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -30,19 +31,21 @@ fun AboutProduct(electric: Electric,modifier: Modifier){
     Column(modifier = Modifier.fillMaxWidth()) {
         Box(modifier = Modifier
             .fillMaxWidth()
-            .weight(0.75f)
+            .fillMaxHeight(0.5f)
+  //          .weight(0.75f)
             .background(color = colorResource(R.color.gris)),
             contentAlignment = Alignment.Center,
             ) {
             Image(
                 painter = painterResource(electric.imageResourceId),
-                contentScale = ContentScale.Fit,
+                contentScale = ContentScale.Crop,
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize()
             )
         }
         Box(modifier = Modifier
-            .weight(1f)) {
+//            .weight(1f)
+        ) {
             Column {
                 Text(
                     text = electric.description,
@@ -77,6 +80,5 @@ fun AboutProduct(electric: Electric,modifier: Modifier){
 fun ScreenPreview() {
     ElectronicGadgetsTheme {
         val electric= DataSource().listOfDetailedHeadset[0]
-        ThirdScreen(electric =electric )
     }
 }

@@ -17,31 +17,37 @@ import com.example.electronicgadgets.ui.theme.Electric
 fun AllNavigation(
     navController: NavHostController, electric: Electric
 ) {
-
     NavHost(
-        navController = navController, startDestination = Route.ElectricMainBox.route
+        navController = navController,
+        startDestination = Route.ElectricMainBox.route
     ) {
         composable(
             route = Route.ElectricMainBox.route,
         ) {
             HomeScreen(navController)
         }
-        composable(Route.ElectricDetailedBox.route
-        )
-        {
-            DetailedScreen(navController = navController)
 
+        composable(
+            route = Route.ElectricDetailedBox.route
+        ) {
+            DetailedScreen(navController = navController)
         }
-        composable(route = Route.ElectronicFinalBox.route,arguments = listOf(navArgument(name = "id") {
-            type = NavType.StringType
-        }
-        )) {
-            val arg=it.arguments?.getString("id").toString()
+
+        composable(
+            route = Route.ElectronicFinalBox.route,
+            arguments = listOf(
+                navArgument(
+                    name = "id"
+                ) {
+                    type = NavType.StringType
+                }
+            )
+        ) {
+            val arg = it.arguments?.getString("id").toString()
             Log.d("arg", it.arguments?.getString("id").toString())
-            val electric1=DataSource().listOfDetailedHeadset.findLast { it.id==arg }
-            ThirdScreen(electric1?:electric, navController = navController)
+            val electric1 = DataSource().listOfDetailedHeadset.findLast { it.id == arg }
+            ThirdScreen(electric1 ?: electric, navController = navController)
         }
 
     }
-
 }

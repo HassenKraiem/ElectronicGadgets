@@ -16,39 +16,59 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.electronicgadgets.Navigation.Route
+import com.example.electronicgadgets.ui.theme.DataSource
 import com.example.electronicgadgets.ui.theme.Electric
 
 @Composable
-fun ElectricMainBox(electric: Electric,
-                    route:String,
-                    navController: NavController,
-                    modifier: Modifier=Modifier){
-    Box(modifier = modifier
-        .padding(25.dp)
-        .clip(shape = RoundedCornerShape(25.dp))
-        .background(color = Color.Black)
-        .clickable {navController.navigate(route = route) }
-    )
-    {
+fun ElectricMainBox(
+    electric: Electric,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .padding(25.dp)
+            .clip(shape = RoundedCornerShape(25.dp))
+            .background(color = Color.Black)
+            .clickable {
+                onClick()
+            }
+    ) {
         Column {
             Image(
                 painter = painterResource(electric.imageResourceId),
                 contentDescription = null,
                 contentScale = ContentScale.Fit
             )
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomStart) {
+
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomStart
+            ) {
                 Text(
                     text = "Wireless Headsets",
                     color = Color.White,
                     fontSize = 18.sp,
                     lineHeight = 20.68.sp,
                     modifier = Modifier.padding(15.dp)
-
-                    )
+                )
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun ElectricItemPreview() {
+    ElectricMainBox(
+        electric = DataSource().listOfMainElectrics.first(),
+        onClick = {
+
+        }
+    )
 }

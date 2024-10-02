@@ -59,7 +59,6 @@ fun HomeScreen(
                         "Headsets" in item.description ->
                             Route.ElectricDetailedBox.route
 
-
                         "Camera" in item.description ->
                             Route.ElectricMainBox.route
 

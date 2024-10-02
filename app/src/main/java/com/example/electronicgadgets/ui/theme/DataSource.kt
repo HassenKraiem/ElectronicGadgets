@@ -18,6 +18,7 @@ class DataSource {
 
     )
     val listOfElectricIcons = listOf(
+
         Electric(
             description = "All",
             imageResourceId = R.drawable.frame_30

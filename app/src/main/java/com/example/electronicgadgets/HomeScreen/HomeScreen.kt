@@ -19,17 +19,23 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.electronicgadgets.Navigation.Route
 import com.example.electronicgadgets.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavController){
-    Scaffold(modifier = Modifier,
-        topBar ={
+fun HomeScreen(
+    navController: NavController
+) {
+    Scaffold(
+        modifier = Modifier,
+        topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Row(modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween)
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    )
                     {
                         Image(
                             painter = painterResource(R.drawable.ellipse_1),
@@ -43,11 +49,25 @@ fun HomeScreen(navController: NavController){
                     }
                 }
             )
-        }){innerpadding->
+        }
+    ) { innerpadding ->
         View(
             modifier = Modifier.padding(innerpadding),
-            navController = navController
-        )
+            onItemClick = { item ->
+                val route =
+                    when {
+                        "Headsets" in item.description ->
+                            Route.ElectricDetailedBox.route
 
+                        "Camera" in item.description ->
+                            Route.ElectricMainBox.route
+
+                        else ->
+                            ""
+                    }
+
+                navController.navigate(route = route)
+            }
+        )
     }
 }

@@ -21,14 +21,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.electronicgadgets.MainView.MainView
+import com.example.electronicgadgets.ui.theme.Electric
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun View(modifier: Modifier = Modifier, navController: NavController) {
+fun View(
+    modifier: Modifier = Modifier,
+    onItemClick: (Electric) -> Unit,
+) {
     var text by remember { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
     Column(
@@ -39,15 +44,16 @@ fun View(modifier: Modifier = Modifier, navController: NavController) {
             text = "Hey, buy the best  Electronic Gadgets",
             fontSize = 30.sp,
             lineHeight = 39.sp,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier
                 .padding(horizontal = 25.dp)
                 .padding(top = 25.dp)
         )
-        Scaffold(
-            modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-
-            ) { innerPadding ->
-            Column {
+//        Scaffold(
+//            modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+//
+//            ) { innerPadding ->
+//            Column {
                 SearchBar(
                     query = text,
                     onQueryChange = { text = it },
@@ -55,7 +61,7 @@ fun View(modifier: Modifier = Modifier, navController: NavController) {
                     active = active,
                     onActiveChange = { active = it },
                     colors = SearchBarDefaults.colors(
-                        dividerColor = Color.Black
+                        dividerColor = Color.Black,
                     ),
                     placeholder = {
                         Text(text = "Search any product")
@@ -72,13 +78,13 @@ fun View(modifier: Modifier = Modifier, navController: NavController) {
                         .padding(horizontal = 25.dp)
                 )
                 {}
+
                 MainView(
-                    modifier = Modifier.padding(innerPadding),
-                    navController = navController
-
+                    modifier = Modifier,
+                    onItemClick = onItemClick,
                 )
-            }
+//            }
 
-        }
+//        }
     }
 }

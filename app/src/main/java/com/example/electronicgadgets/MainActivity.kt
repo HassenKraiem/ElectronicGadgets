@@ -15,10 +15,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ElectronicGadgetsTheme {
-                val navController= rememberNavController()
-                AllNavigation(navController,
-                    electric = DataSource().listOfDetailedHeadset[0])
+                val navController = rememberNavController()
 
+                AllNavigation(
+                    navController,
+                    electric = DataSource().listOfDetailedHeadset[0]
+                )
             }
         }
     }

@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -18,32 +19,39 @@ import com.example.electronicgadgets.ui.theme.DataSource
 import com.example.electronicgadgets.ui.theme.Electric
 
 @Composable
-fun MainView(modifier: Modifier,navController: NavController){
-    val listOfMainElectric=DataSource().listOfMainElectrics
-    val listOfIcons=DataSource().listOfElectricIcons
-    Column(modifier = Modifier.fillMaxWidth()) {
+fun MainView(
+    modifier: Modifier,
+    onItemClick: (Electric) -> Unit
+) {
+    val listOfMainElectric = DataSource().listOfMainElectrics
+    val listOfIcons = DataSource().listOfElectricIcons
+
+    Column(modifier = modifier.fillMaxWidth()) {
         Text(
             text = "Categories",
             fontSize = 24.sp,
             lineHeight = 40.sp,
             fontWeight = FontWeight(500)
         )
-        LazyRow(modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween) {
+
+        LazyRow(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
             items(listOfIcons) { item: Electric ->
                 Electric_Icons(item)
             }
         }
-        var route=""
+
         LazyColumn {
-            items(listOfMainElectric){item: Electric ->
-                when{
-                    "Headsets" in item.description->route=Route.ElectricDetailedBox.route
-                    "Camera" in item.description->route=Route.ElectricMainBox.route
-                }
-                ElectricMainBox(item , route = route,
-                    navController =navController )
-        }
+            items(listOfMainElectric) { item: Electric ->
+                ElectricMainBox(
+                    electric = item,
+                    onClick = {
+                        onItemClick(item)
+                    }
+                )
+            }
         }
     }
 

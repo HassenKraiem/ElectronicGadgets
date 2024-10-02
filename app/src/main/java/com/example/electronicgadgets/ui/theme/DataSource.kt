@@ -21,6 +21,7 @@ class DataSource {
         Electric(
             description = "All",
             imageResourceId = R.drawable.frame_30
+
         ),
         Electric(
             description = "Cameras",

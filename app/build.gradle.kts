@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -60,4 +61,8 @@ dependencies {
     val nav_version = "2.8.1"
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    implementation("com.github.skydoves:landscapist-transformation:2.1.6")
+    implementation("com.github.skydoves:landscapist-glide:2.3.2")
+
 }

@@ -1,4 +1,4 @@
-package com.example.electronicgadgets.ThirdScreen
+package com.example.electronicgadgets.productInformationScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -14,28 +14,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.electronicgadgets.R
 import com.example.electronicgadgets.ui.theme.DataSource
 import com.example.electronicgadgets.ui.theme.Electric
 import com.example.electronicgadgets.ui.theme.ElectronicGadgetsTheme
+import com.example.electronicgadgets.ui.theme.Gris02
 
 @Composable
-fun AboutProduct(electric: Electric,modifier: Modifier){
+fun AboutProduct(electric: Electric) {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(0.5f)
-  //          .weight(0.75f)
-            .background(color = colorResource(R.color.gris)),
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.5f)
+                //          .weight(0.75f)
+                .background(color = Gris02),
             contentAlignment = Alignment.Center,
-            ) {
+        ) {
             Image(
                 painter = painterResource(electric.imageResourceId),
                 contentScale = ContentScale.Crop,
@@ -43,7 +44,8 @@ fun AboutProduct(electric: Electric,modifier: Modifier){
                 modifier = Modifier.fillMaxSize()
             )
         }
-        Box(modifier = Modifier
+        Box(
+            modifier = Modifier
 //            .weight(1f)
         ) {
             Column {
@@ -52,18 +54,20 @@ fun AboutProduct(electric: Electric,modifier: Modifier){
                     fontSize = 24.sp,
                     lineHeight = 27.58.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(top = 15.dp)
+                    modifier = Modifier
+                        .padding(top = 15.dp)
                         .padding(horizontal = 15.dp)
                 )
                 Text(
                     text = electric.price,
                     fontSize = 20.sp,
                     lineHeight = 22.98.sp,
-                    modifier = Modifier.padding(horizontal = 15.dp)
+                    modifier = Modifier
+                        .padding(horizontal = 15.dp)
                         .padding(bottom = 15.dp)
                 )
                 Text(
-                    text = electric.moreDetailedDescription,
+                    text = stringResource(electric.moreDetailedDescriptionId),
                     textAlign = TextAlign.Center,
                     fontSize = 16.sp,
                     lineHeight = 25.sp,
@@ -75,10 +79,11 @@ fun AboutProduct(electric: Electric,modifier: Modifier){
     }
 
 }
+
 @Preview(showBackground = true)
 @Composable
 fun ScreenPreview() {
     ElectronicGadgetsTheme {
-        val electric= DataSource().listOfDetailedHeadset[0]
+        val electric = DataSource().listOfHeadset[0]
     }
 }

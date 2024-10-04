@@ -24,6 +24,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.electronicgadgets.ui.theme.Black01
 import com.example.electronicgadgets.ui.theme.DataSource
 import com.example.electronicgadgets.ui.theme.Electric
 import com.example.electronicgadgets.ui.theme.Gris02
@@ -46,6 +47,7 @@ fun Electric_Icons(
             backgroundColor = Gris02
             color = Gris03
         }
+        if (electric.description=="All")backgroundColor= Black01
         Box(contentAlignment = Alignment.Center,
             modifier = Modifier
                 .width(66.dp)

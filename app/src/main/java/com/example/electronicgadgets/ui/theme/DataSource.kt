@@ -25,7 +25,7 @@ class DataSource {
     val listOfElectricIcons = listOf(
 
         Electric(
-            description = "All", imageResourceId = R.drawable.frame_30, id = "0"
+            description = "All", imageResourceId = R.drawable.all_typs, id = "0"
         ), Electric(
             description = "Camera", imageResourceId = R.drawable.camera_icon, id = "1"
         ), Electric(

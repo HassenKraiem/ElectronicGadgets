@@ -78,7 +78,9 @@ fun DetailedScreen(navController: NavController,
 
             ) {
                 items(list) { item: Electric ->
-                    BoxToBuy(electric = item, navController = navController)
+                    BoxToBuy(electric = item, onClick = {navController.navigate(
+                        route = "Final/" +item.id,
+                    )})
 
                 }
             }

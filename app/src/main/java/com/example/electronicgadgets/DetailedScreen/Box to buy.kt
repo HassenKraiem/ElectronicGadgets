@@ -29,18 +29,19 @@ import com.example.electronicgadgets.ui.theme.Electric
 import com.example.electronicgadgets.ui.theme.Gris02
 
 @Composable
-fun BoxToBuy(electric: Electric, navController: NavController) {
+fun BoxToBuy(electric: Electric, onClick:()->Unit) {
     Box(
         modifier = Modifier
             .padding(15.dp)
             .clip(shape = RoundedCornerShape(10.dp))
             .background(color = Gris02)
             .aspectRatio(164f / 244f)
-            .clickable {
+            .clickable { onClick() }
+            /*.clickable {
                 navController.navigate(
                     route = "Final/" + electric.id,
                 )
-            }, contentAlignment = Alignment.Center
+            }*/, contentAlignment = Alignment.Center
     ) {
         Column(
             verticalArrangement = Arrangement.SpaceEvenly,

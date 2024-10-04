@@ -7,8 +7,8 @@ class Electric(
     val price: String = "$0",
     val imageResourceId: Int,
     val moreDetailedDescriptionId: Int = R.string.headset_description_1,
-    val Duration: String = "",
-    val power: String="",
+    val Duration: String = "40 hours litening",
+    val power: String="5m Power up fuel",
     val id:String="0"
 ) {
 }

@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.electronicgadgets.ui.theme.DataSource
 import com.example.electronicgadgets.ui.theme.Electric
+import com.example.electronicgadgets.ui.theme.Gris02
 import com.example.electronicgadgets.ui.theme.Gris03
 
 @Composable
@@ -33,7 +34,7 @@ fun Electric_Icons(
     electric: Electric, onClick: () -> Unit
 ) {
     var isSelected by remember { mutableStateOf(false) }
-    var backgroundColor by remember { mutableStateOf(Color.LightGray) }
+    var backgroundColor by remember { mutableStateOf(Gris02) }
     var color by remember { mutableStateOf(Gris03) }
     Column(
         modifier = Modifier, horizontalAlignment = Alignment.CenterHorizontally
@@ -42,7 +43,7 @@ fun Electric_Icons(
             backgroundColor = Color.Black
             color = Color.Black
         } else {
-            backgroundColor = Color.LightGray
+            backgroundColor = Gris02
             color = Gris03
         }
         Box(contentAlignment = Alignment.Center,

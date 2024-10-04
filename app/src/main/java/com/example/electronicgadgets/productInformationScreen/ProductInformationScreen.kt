@@ -2,6 +2,7 @@ package com.example.electronicgadgets.productInformationScreen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
@@ -60,30 +61,34 @@ fun ProductInformationScreen(
                     )
                 }
             })
-        }) { innerpadding ->
-            Column(
-                Modifier
+        }) { innerPadding ->
+            Column(verticalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier
                     .fillMaxSize()
-                    .padding(innerpadding)
+                    .padding(innerPadding)
                     .verticalScroll(state = rememberScrollState())
             ) {
                 AboutProduct(electric = electric)
-                DownThirdScreen(electric = electric,
-                    modifier = Modifier.padding(20.dp)
-                )
-                //  Spacer(Modifier.height(10.dp))
-                Button(
-                    onClick = {},
-                    modifier = Modifier
-                        .aspectRatio(348 / 55f)
-                        .padding(horizontal = 15.dp)
-                        .clip(shape = RoundedCornerShape(5.dp)),
-                    colors = ButtonDefaults.buttonColors(containerColor = Black01)
-                ) {
-                    Text(
-                        text = "Add to cart",
-                        fontSize = 18.sp
+                Column(Modifier.fillMaxSize()) {
+                    DownThirdScreen(
+                        electric = electric,
+                        modifier = Modifier.padding(20.dp)
                     )
+                    //  Spacer(Modifier.height(10.dp))
+                    Button(
+                        onClick = {},
+                        shape = RoundedCornerShape(15.dp),
+                        modifier = Modifier
+                            .padding(bottom = 20.dp)
+                            .padding(horizontal = 15.dp)
+                            .aspectRatio(348 / 55f),
+                        colors = ButtonDefaults.buttonColors(containerColor = Black01)
+                    ) {
+                        Text(
+                            text = "Add to cart",
+                            fontSize = 18.sp
+                        )
+                    }
                 }
             }
         }

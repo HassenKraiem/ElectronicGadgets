@@ -19,6 +19,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -34,7 +36,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.electronicgadgets.ui.theme.DataSource
 import com.example.electronicgadgets.ui.theme.Electric
+import com.example.electronicgadgets.ui.theme.Gris01
 import com.example.electronicgadgets.ui.theme.Gris02
+import com.example.electronicgadgets.ui.theme.Gris03
 
 // HomeScreen
 // BoxToBuy... -8_
@@ -92,6 +96,13 @@ fun HomeMainScreen(
                     colors = SearchBarDefaults.colors(
                         dividerColor = Color.Black,
                         containerColor = Gris02,
+                        inputFieldColors = TextFieldDefaults.colors(
+                            focusedLeadingIconColor = Color.Black,
+                            unfocusedLeadingIconColor = Gris03,
+                            focusedPlaceholderColor = Color.Black,
+                            unfocusedPlaceholderColor = Gris03,
+
+                        )
                     ),
                     placeholder = {
                         Text(text = "Search any product")
@@ -105,7 +116,6 @@ fun HomeMainScreen(
                         .fillMaxWidth()
                         .align(alignment = Alignment.CenterHorizontally)
                         .aspectRatio(348 / 56f)
-                        .padding(horizontal = 25.dp)
 
                 ) {}
                 Spacer(Modifier.height(25.dp))

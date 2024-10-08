@@ -26,16 +26,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.electronicgadgets.Navigation.Route
-import com.example.electronicgadgets.ui.theme.DataSource
 import com.example.electronicgadgets.ui.theme.Electric
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailedScreen(navController: NavController) {
+fun DetailedScreen(navController: NavController,
+                   list: List<Electric>) {
     val listOfTitles = listOf(
         "new", "featured", "must see", "top selected"
     )
-    val listOfHeadset = DataSource().listOfDetailedHeadset
     Scaffold(modifier = Modifier, topBar = {
         CenterAlignedTopAppBar(title = {
             Row(
@@ -57,10 +56,10 @@ fun DetailedScreen(navController: NavController) {
             }
 
         })
-    }) { innerpadding ->
+    }) { innerPadding ->
         Column(
             modifier = Modifier
-                .padding(innerpadding)
+                .padding(innerPadding)
                 .padding(15.dp)
         ) {
             Text(
@@ -78,8 +77,10 @@ fun DetailedScreen(navController: NavController) {
                 columns = GridCells.Fixed(2), modifier = Modifier.padding(15.dp)
 
             ) {
-                items(listOfHeadset) { item: Electric ->
-                    BoxToBuy(electric = item, navController = navController)
+                items(list) { item: Electric ->
+                    BoxToBuy(electric = item, onClick = {navController.navigate(
+                        route = "Final/" +item.id,
+                    )})
 
                 }
             }

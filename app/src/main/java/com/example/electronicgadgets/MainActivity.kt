@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
 
                 AllNavigation(
                     navController,
-                    electric = DataSource().listOfDetailedHeadset[0]
+                    electric = DataSource().listOfHeadset[0]
                 )
             }
         }
